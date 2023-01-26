@@ -1,4 +1,5 @@
-float _cx = 0.01;  //This is a place for the circle's position
+float _cx = 0;  //This is a place for the circle's position
+float _cd = 10;
 
 void setup()
 {
@@ -12,14 +13,11 @@ void draw()
   rect(0,0,width,height);
   fill(255);
   circle(_cx,height/2,40);  //Drawing the circle
+  _cx = _cx + _cd;
   
-  if(_cx > width)
+  if(_cx > width || _cx < 0)
   {
-    _cx = .001;
-  }
-  else
-  {
-    _cx = _cx * 1.1;
+    _cd = _cd * (-1);
   }
  }
  
