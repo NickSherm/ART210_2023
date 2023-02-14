@@ -6,6 +6,11 @@ class planet
   float size = 10.0;
   color col = color(255,255,255);
   
+  planet()
+  {
+   this.speed = random(-1,1); 
+  }
+  
 void update ()
 {
     this.angle = this.angle + this.speed;
