@@ -8,10 +8,11 @@ class Squirrel extends Sprite
     this.acceleration = new PVector(0.05,0);
     this.registerAnimation(new Animation("Squirrel","svg"));
     this.registerAnimation(new Animation("Squirrel_R","svg"));
-    this.registerAnimation(new Animation("Squirrel","svg"));
-    this.scale = 0.2;
+    this.registerAnimation(new Animation("Squirrel_S","svg"));
+    this.scale = 2;
     this.h = 120;
     this.location.y = height-this.h-100;
+    this.location.x = width+50;
   }
   
   void check()
@@ -31,11 +32,11 @@ class Squirrel extends Sprite
     this.velocity.limit(this.maxSpeed);
     if(this.velocity.x < 0)
     {
-      this.currentAnim = 1;
-    }
-    else
-    {
       this.currentAnim = 0;
+    }
+   else
+    {
+      this.currentAnim = 1;
     }
     
   }

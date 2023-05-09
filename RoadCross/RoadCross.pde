@@ -2,7 +2,8 @@ import processing.sound.*;
 import de.looksgood.ani.*;
 
 Squirrel s;
-int nCars = 12;
+Cars c;
+int nCars = 5;
 Cars[] z = new Cars[nCars];
 boolean test = false;
 Synth boing;
@@ -16,17 +17,18 @@ static final int WIN = 3;
 int gameState = SPLASH;
 int speed = 0;
 int counter = 0;
+int high = 0;
 
 
 
 void setup()
 {
-  size(1200,800);
+  size(1000,1200);
   //fullScreen();
   Ani.init(this);
-  myfont = createFont("Heebo.ttf",100);
+  myfont = createFont("Gameplay.ttf",100);
   gameStateChange(SPLASH);
-  img = loadImage("Ground_Test.png");
+  img = loadImage("Road.png");
   
 }
 
@@ -70,11 +72,12 @@ void LOSE_run()
   background(0,0,0);
   fill(255,255,255);
   textAlign(CENTER);
-  textSize(200);
-  text("YOU LOSE",width/2, height/2);
+  textSize(150);
+  text("YOU",width/2, height/2-200);
+  text("LOSE",width/2, height/2-50);
   textAlign(CENTER);
-  textSize(50);
-  text("Press ANY key to Restart", width/2, height-300);
+  textSize(30);
+  text("Press ANY key to Restart", width/2, height/2+200);
   counter = 0;
 }
 
@@ -101,10 +104,14 @@ void splash_run()
   textFont(myfont);
   textAlign(CENTER);
   textSize(150);
-  text("Cross the Road",width/2, height/2);
-  textSize(40);
+  text("Cross",width/2, height/2-200);
+  textSize(75);
+  text("the", width /2, height/2-112);
+  textSize(150);
+  text("Road",width/2, height/2 + 50);
+    textSize(30);
   fill(255);
-  text("Press ANY key to Start",width/2,height/2+100);
+  text("Press ANY key to Start",width/2,height/2+200);
   s.display();
 }
 
@@ -133,8 +140,7 @@ void game_init()
 
 void game_run()
 {
-    background(0);
-    image(img, 0, 0);
+    image(img,0,0);
 //  fill(230);
 //  rect(100,100,width-200,height-200);
   s.display();
@@ -149,13 +155,20 @@ void game_run()
   boing.display();
   boing.update();
   fill(50);  
-  rect(0,675,width,220);
+  rect(0,height/1.1,width,220);
   fill(255);
-  text("Roads Crossed:", width/2, 725);
-  text(counter,width/2, 775);
+  text("Roads", width/10, height/1.05 );
+  text(counter,width/10, height/1.015);
+    fill(255);
+  text("High Score", width/1.15, height/1.05 );
+  text(high,width/1.15, height/1.015);
   fill(50);
   rect(0,0,width,75);
   fill(255);
+  if(high < counter){
+     high = high + 1; 
+  }
+  
   
 }
 
