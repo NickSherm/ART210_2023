@@ -26,6 +26,7 @@ class Squirrel extends Sprite
     }
     if(res == Collision.LEFT)
     {
+      
       gameStateChange(PLAY);
       counter = counter + 1;
     }
@@ -39,5 +40,9 @@ class Squirrel extends Sprite
       this.currentAnim = 1;
     }
     
+   if(this.velocity.x > -0.01 && this.velocity.x < 0.01)
+   {
+    this.currentAnim = 2; 
+   }
   }
 }

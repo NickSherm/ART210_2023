@@ -2,9 +2,9 @@
 ----Code----
 -Fix collisions                                  *Fixed
 -Winning Screen                                  *Removed
--Stop cars from clipping
+-Stop cars from clipping                         *Added
   -Put Cars in lanes                             *Fixed
-  -Randomized Lane Distribution
+  -Randomized Lane Distribution                  *Removed
 -High Score System                               *Added
 -Number of Cars increase per roads crossed       *Removed
 -Changable resolution                            *Removed - Switched to vertical resolution only

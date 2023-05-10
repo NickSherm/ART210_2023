@@ -3,6 +3,8 @@ class Cars extends Sprite
   float maxSpeed = 8;
   int[] numbers = {700, width/2 , 300}; // an array of whole numbers
   int randomIndex = int(random(numbers.length)); // generates a random index within the length of the array
+  int[] numberz = {-500 , -900 , -1300, -1700, -2100, -2500, -2900, -3300}; // an array of whole numbers
+  int randomHeight = int(random(numbers.length)); // generates a random index within the length of the array
   int randomNum = numbers[randomIndex];
 
 
@@ -23,28 +25,51 @@ class Cars extends Sprite
     this.collRadius=this.w*3.5;
     this.translation.y=this.h / (-1.5);
   }
-  
+   
   void check()    
   {
     Collision coll = new Collision(this,true);
     int res = coll.box2circle(100,100,width-200,height-200+this.h,false);
-    if(res == Collision.BOTTOM)
+  //  if(res == Collision.BOTTOM)
+    if(z[1].location.y < 1500)
     {
-      this.location.y = -this.h-random(100, 1000);
-      this.location.x = numbers[randomIndex] + random(-10,10);
-      this.velocity.x = 0;
       this.velocity.y = 10;
-      this.acceleration.y = .0;    
-      this.currentAnim = int(random(0,3));
+      this.acceleration.y = random(0.1,0.5);
+      this.acceleration.y = 0;    
     }
+    else {
+     z[1].location.y = -200; 
+     this.currentAnim = int(random(0,3));
+    }
+    
+    if(z[2].location.y < 1500)
+    {
+      this.velocity.y = 9;
+      this.acceleration.y = random(0.1,0.5);
+      this.acceleration.y = 0;    
+    }
+    else {
+     z[2].location.y = -400; 
+     this.currentAnim = int(random(0,3));
+   }
+   
+     if(z[0].location.y < 1500)
+    {
+      this.velocity.y = 11;
+      this.acceleration.y = random(0.1,0.5);
+      this.acceleration.y = 0;    
+    }
+    else {
+     z[0].location.y = -600; 
+     this.currentAnim = int(random(0,3));
+   }
 /*
     res = coll.circle2circle(c);
     if(res == Collision.IN)
     {
-     this.location.y = this.h + random(500, 750);
+    this.location.y = this.h + random(500, 750);
     }
 */
-
     res = coll.circle2circle(s);
     if(res == Collision.IN)
     {
@@ -53,6 +78,6 @@ class Cars extends Sprite
     }
     
   }
-  
+ 
   
 }

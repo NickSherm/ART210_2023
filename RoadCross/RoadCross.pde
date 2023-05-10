@@ -3,7 +3,7 @@ import de.looksgood.ani.*;
 
 Squirrel s;
 Cars c;
-int nCars = 5;
+int nCars = 3;
 Cars[] z = new Cars[nCars];
 boolean test = false;
 Synth boing;
@@ -29,7 +29,6 @@ void setup()
   myfont = createFont("Gameplay.ttf",100);
   gameStateChange(SPLASH);
   img = loadImage("Road.png");
-  
 }
 
 void draw()
@@ -141,19 +140,25 @@ void game_init()
 void game_run()
 {
     image(img,0,0);
-//  fill(230);
-//  rect(100,100,width-200,height-200);
+
   s.display();
   s.update();
   s.check();
   for(int i =0; i < nCars; i =  i + 1)
   {
+    z[0].location.x = 700;
+    z[1].location.x = 500;
+    z[2].location.x = 300;
+
     z[i].display();
     z[i].update();
     z[i].check();
+
   }  
+  
   boing.display();
   boing.update();
+  
   fill(50);  
   rect(0,height/1.1,width,220);
   fill(255);
@@ -184,12 +189,13 @@ void game_keyPressed()
        if (key == 'w' || key == 'W') {
       s.acceleration.x = s.acceleration.x * (0);
       s.velocity.x = s.acceleration.x * (0);
-    }
+    } 
    else 
   {
     s.acceleration.x = s.acceleration.x * (0);
   }
-}
+
+} 
 }
 
  // s.acceleration.x = s.acceleration.x * (-1.0);
