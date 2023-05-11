@@ -23,8 +23,7 @@ int high = 0;
 
 void setup()
 {
-  size(1000,1200);
-  //fullScreen();
+  size(1200,1000);
   Ani.init(this);
   myfont = createFont("Gameplay.ttf",100);
   gameStateChange(SPLASH);
@@ -139,7 +138,7 @@ void game_init()
 
 void game_run()
 {
-    image(img,0,0);
+    image(img,0,-25);
 
   s.display();
   s.update();
@@ -159,16 +158,23 @@ void game_run()
   boing.display();
   boing.update();
   
+  noStroke();
+ // fill(50);
+//  rect(0,0,width,25);
   fill(50);  
-  rect(0,height/1.1,width,220);
+  rect(1000,0,width/2,height);
+  textSize(25);
   fill(255);
-  text("Roads", width/10, height/1.05 );
-  text(counter,width/10, height/1.015);
-    fill(255);
-  text("High Score", width/1.15, height/1.05 );
-  text(high,width/1.15, height/1.015);
-  fill(50);
-  rect(0,0,width,75);
+  text("High", width/1.09, height/7 );
+  text("Score", width/1.09, height/5.9 );
+  textSize(45);
+  text(high,width/1.09, height/9);
+  fill(255);
+  textSize(25);
+  text("Roads", width/1.09, height/3 );
+  text("Crossed", width/1.09, height/2.78 );
+  textSize(45);
+  text(counter,width/1.09, height/3.35);
   fill(255);
   if(high < counter){
      high = high + 1; 

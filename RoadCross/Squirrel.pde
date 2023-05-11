@@ -12,13 +12,13 @@ class Squirrel extends Sprite
     this.scale = 2;
     this.h = 120;
     this.location.y = height-this.h-100;
-    this.location.x = width+50;
+    this.location.x = width+75;
   }
   
   void check()
   {
     Collision coll = new Collision(this,true);
-    int res = coll.box2circle(100,100,width-200,height-200,false);
+    int res = coll.box2circle(100,100,width-400,height-200,false);
     if(res == Collision.RIGHT)
     {
       this.acceleration.x = this.acceleration.x - (.1);

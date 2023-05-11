@@ -49,7 +49,7 @@ class Cars extends Sprite
       this.acceleration.y = 0;    
     }
     else {
-     z[2].location.y = -400; 
+     z[2].location.y = -600; 
      this.currentAnim = int(random(0,3));
    }
    
@@ -60,7 +60,7 @@ class Cars extends Sprite
       this.acceleration.y = 0;    
     }
     else {
-     z[0].location.y = -600; 
+     z[0].location.y = -400; 
      this.currentAnim = int(random(0,3));
    }
 /*
